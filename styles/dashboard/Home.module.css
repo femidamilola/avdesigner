@@ -1,3 +1,11 @@
 .circle svg text {
     font-size: 32px !important;
 }
+
+.svg path {
+    stroke-width: 12;
+}
+
+.svg svg {
+    overflow: visible;
+}
