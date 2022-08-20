@@ -121,15 +121,15 @@ const SideBar = ({}: propType) => {
           </span>
         </Link>
       </div>
-      {/*<div className={"flex flex-row items-center gap-[16px] justify-center"}>*/}
-      {/*  <SunIcon iconWidth={"22px"} iconHeight={"22px"} />*/}
-      {/*  <div>*/}
-      {/*    <label className={styles.switch}>*/}
-      {/*      <input type="checkbox" />*/}
-      {/*      <span className={styles.slider + " " + styles.round}></span>*/}
-      {/*    </label>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
+      <div className={"flex flex-row items-center gap-[16px] justify-center"}>
+        <SunIcon iconWidth={"22px"} iconHeight={"22px"} />
+        <div>
+          <label className={styles.switch}>
+            <input type="checkbox" />
+            <span className={styles.slider + " " + styles.round}></span>
+          </label>
+        </div>
+      </div>
     </div>
   );
 };
