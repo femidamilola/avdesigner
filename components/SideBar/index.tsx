@@ -9,6 +9,7 @@ import { CopyIcon } from "../icons/CopyIcon";
 import { ContactIcon } from "../icons/ContactIcon";
 import { BookIcon } from "../icons/BookIcon";
 import { PlayIcon } from "../icons/PlayIcon";
+import { SunIcon } from "../icons/SunIcon";
 interface propType {
   logout?: () => void;
 }
@@ -70,7 +71,7 @@ const SideBar = ({}: propType) => {
   const router = useRouter();
   console.log(router.route);
   return (
-    <div className={styles.pd_sidebar}>
+    <div className={styles.pd_sidebar + " flex flex-col relative"}>
       <div className={"block text-center text-2xl"}>
         <p className={"text-white"}>
           <span className={"text-[#eb5e00]"}>AV</span> DESIGNER
@@ -96,8 +97,9 @@ const SideBar = ({}: propType) => {
           ))}
         </ul>
       </div>
+      <div className={"grow"}></div>
       <hr />
-      <div className={"mt-[60px]"}>
+      <div className={"bottom-2 mt-[60px]"}>
         <ul className={styles.nav_list}>
           {bottom.map((link) => (
             <li
@@ -113,7 +115,21 @@ const SideBar = ({}: propType) => {
             </li>
           ))}
         </ul>
+        <Link href={"/dashboard"}>
+          <span className={"text-[#ECF1F4BF] text-xs ml-[42px]"}>
+            Get Support/Feedback
+          </span>
+        </Link>
       </div>
+      {/*<div className={"flex flex-row items-center gap-[16px] justify-center"}>*/}
+      {/*  <SunIcon iconWidth={"22px"} iconHeight={"22px"} />*/}
+      {/*  <div>*/}
+      {/*    <label className={styles.switch}>*/}
+      {/*      <input type="checkbox" />*/}
+      {/*      <span className={styles.slider + " " + styles.round}></span>*/}
+      {/*    </label>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
     </div>
   );
 };
