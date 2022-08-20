@@ -1,0 +1,65 @@
+@use "../../components/assets/scss/index" as *;
+
+.pd_sidebar {
+  width: 240px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #161616;
+  padding: 42px 0 0;
+  min-height: 100vh;
+  hr {
+    margin-left: 60px;
+    margin-right: 63px
+  }
+  .cover_all {
+    width: 100%;
+    margin: auto;
+  }
+  .image_side {
+    width: 100%;
+    position: relative;
+    .cover_image {
+      height: 208px;
+      width: 100%;
+      position: relative;
+    }
+    button {
+      position: absolute;
+      z-index: 3;
+      bottom: 60px;
+      right: -65px;
+      background: #e77e7a;
+      width: 85px;
+      height: 24px;
+      border-radius: 3px;
+      border: none;
+    }
+    p {
+      color: white;
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+  .nav_list {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    li {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      list-style-type: none;
+      a,
+      p {
+        text-decoration: none;
+        font-weight: 400;
+        line-height: 25px;
+        color: #ffffff;
+      }
+      p {
+        margin-left: 10px;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
