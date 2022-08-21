@@ -1,0 +1,53 @@
+@import './auth.module';
+
+.wrapper {
+
+    h1 {
+        color: #FF6600;
+    }
+
+    .left {
+        width: calc(43.9% - .5px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .right {
+        width: calc(56.1% - .5px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .formFooter {
+        justify-content: center;
+
+        a {
+            color: #114EEC;
+        }
+    }
+
+    .prompt {
+        color: #FFFFFF;
+    }
+
+    .submitbtn {
+        margin-bottom: 13px;
+    }
+
+    .submitbtn:disabled {
+        opacity: 50%;
+    }
+
+    form {
+        padding: 0 88px;
+    }
+
+    .formRow {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

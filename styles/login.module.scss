@@ -1,0 +1,25 @@
+@import './auth.module';
+
+.wrapper {
+
+    .half {
+        height: 100%;
+        width: calc(50% - .5px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .prompt {
+        color: #BFBFBF;
+    }
+
+    .submitbtn {
+        margin-bottom: 6px;
+    }
+
+    form {
+        padding: 0 160px;
+    }
+}

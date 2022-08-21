@@ -162,10 +162,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           </>
         )
       ) : (
-        <>
-          <Navbar />
-          <Component {...pageProps} />
-        </>
+        <Component {...pageProps} />
       )}
     </ThemeProvider>
   );

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    height: 100%;
+}
+
 .main_box {
     background-color:  #E5E5E5;
     min-height: 100vh;
