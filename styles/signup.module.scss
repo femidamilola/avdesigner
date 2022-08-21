@@ -45,9 +45,16 @@
         padding: 0 88px;
     }
 
+    .formInputs {
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
     .formRow {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        column-gap: 27px;
     }
 }
