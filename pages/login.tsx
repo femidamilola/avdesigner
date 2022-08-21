@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-// import authStyle from "../styles/auth.module.css";
 import styles from "../styles/login.module.scss";
 
 const Login: NextPage = () => {
@@ -20,8 +19,30 @@ const Login: NextPage = () => {
         <form className={styles.half}>
           <h1>Welcome Back</h1>
           <small>Enter your details below to continue using AV Designer.</small>
+          <div className={styles.formInputs}>
+            <div className={styles.formGroup}>
+              <input type="text" name="email" id="email" placeholder="Email" />
+              <svg className={styles.inputIcon} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M3.5 6.5L11.3926 12.5355C11.7511 12.8097 12.2489 12.8097 12.6075 12.5355L20.5 6.5M4 18H20C20.5523 18 21 17.5523 21 17V7C21 6.44772 20.5523 6 20 6H4C3.44772 6 3 6.44772 3 7V17C3 17.5523 3.44772 18 4 18Z" stroke="#3C4870" strokeWidth="1.5"/>
+              </svg>
+            </div>
+            <div className={styles.formGroup} style={{marginTop: "40px"}}>
+              <input type="password" name="password" id="password" placeholder="Password" />
+              <svg className={styles.inputIcon} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M10.5 16C10.5 15.1716 11.1716 14.5 12 14.5C12.8284 14.5 13.5 15.1716 13.5 16C13.5 16.8284 12.8284 17.5 12 17.5C11.1716 17.5 10.5 16.8284 10.5 16Z" fill="#3C4870"/>
+                <path fillRule="evenodd" clipRule="evenodd" d="M7.62147 10.5971L7.30603 7.75816C7.26559 7.39418 7.26559 7.02684 7.30603 6.66286L7.3288 6.45796C7.57028 4.28457 9.27889 2.56492 11.4507 2.30941C11.8155 2.26649 12.1841 2.26649 12.5489 2.30941C14.7207 2.56492 16.4293 4.28458 16.6708 6.45797L16.6935 6.66286C16.734 7.02684 16.734 7.39418 16.6935 7.75815L16.3781 10.5971L17.0647 10.6519C18.1474 10.7384 19.0315 11.5523 19.2071 12.6242C19.5731 14.8598 19.5731 17.1401 19.2071 19.3758C19.0315 20.4477 18.1474 21.2616 17.0647 21.348L15.5686 21.4675C13.1932 21.6571 10.8065 21.6571 8.4311 21.4675L6.93497 21.348C5.85224 21.2616 4.96814 20.4477 4.79262 19.3758C4.42655 17.1401 4.42655 14.8598 4.79262 12.6242C4.96814 11.5523 5.85224 10.7384 6.93497 10.6519L7.62147 10.5971ZM11.6259 3.79914C11.8743 3.76992 12.1253 3.76992 12.3736 3.79914C13.8523 3.97309 15.0155 5.1439 15.18 6.62361L15.2027 6.82851C15.2309 7.08239 15.2309 7.33862 15.2027 7.59251L14.8816 10.483C12.9624 10.3594 11.0372 10.3594 9.11802 10.483L8.79686 7.59251C8.76865 7.33862 8.76865 7.08239 8.79686 6.82851L8.81962 6.62361C8.98404 5.1439 10.1473 3.97309 11.6259 3.79914ZM15.4492 12.0277C13.1533 11.8445 10.8464 11.8445 8.55047 12.0277L7.05434 12.1472C6.65941 12.1787 6.33693 12.4756 6.27291 12.8666C5.93312 14.9417 5.93312 17.0583 6.27291 19.1334C6.33693 19.5244 6.65941 19.8213 7.05434 19.8528L8.55047 19.9722C10.8464 20.1555 13.1533 20.1555 15.4492 19.9722L16.9453 19.8528C17.3403 19.8213 17.6627 19.5244 17.7268 19.1334C18.0666 17.0583 18.0666 14.9417 17.7268 12.8666C17.6627 12.4756 17.3403 12.1787 16.9453 12.1472L15.4492 12.0277Z" fill="#3C4870"/>
+              </svg>
+            </div>
+            <div className={styles.formFooter}>
+              <div className={styles.row}>
+                <input type="checkbox" name="rememberMe" id="rememberMe" />
+                <label htmlFor="rememberMe">Keep me signed in.</label>
+              </div>
+              <a href="#">Forgot Password?</a>
+            </div>
+          </div>
           <button type="submit" className={styles.loginbtn}>Sign in</button>
-          <span className={styles.prompt}>New to AV Designer? Sign Up</span>
+          <span className={styles.prompt}>New to AV Designer? <Link href="/signup">Sign Up</Link></span>
         </form>
         <span className={styles.divider}></span>
         <div className={styles.half}>
