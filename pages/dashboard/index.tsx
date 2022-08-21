@@ -9,6 +9,7 @@ import "react-circular-progressbar/dist/styles.css";
 import { CopyIcon } from "../../components/icons/CopyIcon";
 import { PenIcon } from "../../components/icons/PenIcon";
 import { ArchiveIcon } from "../../components/icons/ArchiveIcon";
+import { PreferenceIcon } from "../../components/icons/PreferenceIcon";
 
 const Home = () => {
   const cards = [
@@ -92,11 +93,11 @@ const Home = () => {
   ];
   return (
     <div className={"my-[25px] mx-[25px]"}>
-      <div className={"grid grid-cols-4 gap-[13px]"}>
+      <div className={"block md:grid grid-cols-4 gap-[13px]"}>
         {cards.map((card, index) => (
           <div
             key={index}
-            className={`${card.color} px-[24px] py-[16px] rounded-lg cursor-pointer hover:scale-105 transition-transform `}
+            className={`${card.color} mb-4 px-[24px] py-[16px] rounded-lg cursor-pointer hover:scale-105 transition-transform `}
             style={shadow}
           >
             <div className={"flex flex-row justify-between mb-[25px]"}>
@@ -117,7 +118,7 @@ const Home = () => {
           </div>
         ))}
       </div>
-      <div className={"mt-[36px] grid grid-cols-2 gap-[20px]"}>
+      <div className={"mt-[36px] block md:grid grid-cols-2 gap-[20px]"}>
         <div className={"bg-white rounded-lg"} style={shadow}>
           <div
             className={
@@ -126,18 +127,26 @@ const Home = () => {
             style={shadow}
           >
             <span>Overall Summary</span>
-            <div className={"flex flex-row"}>
+            <div
+              className={
+                "flex flex-row items-center justify-between border border-[#000] w-[100px] py-1 px-2 cursor-pointer"
+              }
+            >
               <span>Annual</span>
-              <span>Icon</span>
+              <span>
+                <PreferenceIcon />
+              </span>
             </div>
           </div>
           <div
             className={
-              "grid grid-cols-2 items-center my-[40px] ml-[51px] gap-[50px]"
+              "block md:grid grid-cols-2 items-center my-[40px] ml-[51px] gap-[50px] pb-2"
             }
           >
-            <div className={styles.svg}>
-              <div className={"w-[220px] h-['220px']"}>
+            <div className={styles.svg + " mx-auto"}>
+              <div
+                className={"w-[120px] h-[120px] md:w-[220px] md:h-['220px']"}
+              >
                 <CircularProgressbarWithChildren
                   className={"w-[48px] h-['48px']"}
                   value={80}
@@ -146,7 +155,11 @@ const Home = () => {
                     trailColor: "transparent",
                   })}
                 >
-                  <div className={"w-[220px] h-['220px']"}>
+                  <div
+                    className={
+                      "w-[120px] h-[120px] md:w-[220px] md:h-['220px']"
+                    }
+                  >
                     <CircularProgressbarWithChildren
                       className={"w-[48px] h-['48px']"}
                       value={70}
@@ -155,7 +168,11 @@ const Home = () => {
                         trailColor: "transparent",
                       })}
                     >
-                      <div className={"w-[220px] h-['220px']"}>
+                      <div
+                        className={
+                          "w-[120px] h-[120px] md:w-[220px] md:h-['220px']"
+                        }
+                      >
                         <CircularProgressbarWithChildren
                           className={"w-[48px] h-['48px']"}
                           value={60}
@@ -164,7 +181,11 @@ const Home = () => {
                             trailColor: "transparent",
                           })}
                         >
-                          <div className={"w-[220px] h-['220px']"}>
+                          <div
+                            className={
+                              "w-[120px] h-[120px] md:w-[220px] md:h-['220px']"
+                            }
+                          >
                             <CircularProgressbarWithChildren
                               className={"w-[48px] h-['48px']"}
                               value={50}
@@ -174,11 +195,13 @@ const Home = () => {
                               })}
                             >
                               <div
-                                className={"text-3xl text-[#8D08F5] font-bold"}
+                                className={
+                                  "text-base md:text-3xl text-[#8D08F5] font-bold"
+                                }
                               >
                                 $1.2m
                               </div>
-                              <div className={"text-sm"}>
+                              <div className={"text-[8px] md:text-sm"}>
                                 12 projects completed
                               </div>
                             </CircularProgressbarWithChildren>
@@ -190,7 +213,7 @@ const Home = () => {
                 </CircularProgressbarWithChildren>
               </div>
             </div>
-            <div>
+            <div className={"mb-2 md:mb-0"}>
               {summary.map((s, index) => (
                 <div
                   key={index}
@@ -236,8 +259,12 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className={"mt-[30px] grid grid-cols-5 gap-[20px] min-h-[300px]"}>
-        <div className={"col-span-3 h-full"}>
+      <div
+        className={
+          "mt-[30px] block md:grid grid-cols-5 gap-[20px] min-h-[300px]"
+        }
+      >
+        <div className={"col-span-3 h-full mb-4"}>
           <div className={"bg-white rounded-lg h-full"} style={shadow}>
             <div
               className={

@@ -6,13 +6,14 @@ import { ThemeProvider } from "styled-components";
 import { AppTheme } from "../themes/AppTheme";
 import { GlobalStyle } from "../themes/GlobalStyle";
 import SideBar from "../components/SideBar";
-import { Navbar } from "../components/navbar";
 import Head from "next/head";
 import { NotificationIcon } from "../components/icons/NotificationIcon";
 import Image from "next/image";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
+  const [open, setOpen] = useState(false);
   // State, used to keep track of authentication
   const [authorized, setAuthorized] = useState(false);
   // State, used to keep track of outline or no outline around buttons, inputs, etc.
@@ -72,6 +73,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     // const publicPaths = ["/login", "/register", "/"];
     setAuthorized(true);
   };
+  const mobile = useMediaQuery("(max-width: 767px)");
+
   return (
     <ThemeProvider theme={AppTheme}>
       <GlobalStyle hasNoFocus={hasNoFocus} />
@@ -88,38 +91,45 @@ function MyApp({ Component, pageProps }: AppProps) {
         authorized && (
           <>
             <div className="contain_dashboard flex">
-              <SideBar />
+              <SideBar open={open} setOpen={setOpen} />
               <div className="main_box px-[25px] py-[16px] grow">
                 <div className={"flex flex-row items-center"}>
-                  <div className={"grow mr-[34px]"}>
-                    <div className={"relative"}>
-                      <div
-                        className={
-                          "absolute top-1/2 tranform -translate-y-1/2 left-[20px]"
-                        }
-                      >
-                        <svg
-                          width="25"
-                          height="24"
-                          viewBox="0 0 25 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                  {!mobile && (
+                    <div className={"grow mr-[34px]"}>
+                      <div className={"relative"}>
+                        <div
+                          className={
+                            "absolute top-1/2 tranform -translate-y-1/2 left-[20px]"
+                          }
                         >
-                          <path
-                            fillRule="evenodd"
-                            clipRule="evenodd"
-                            d="M14.8849 15.4458C12.2346 17.5685 8.35521 17.4014 5.89842 14.9446C3.26238 12.3086 3.26238 8.0347 5.89842 5.39866C8.53446 2.76262 12.8083 2.76262 15.4443 5.39866C17.9011 7.85544 18.0682 11.7349 15.9455 14.3852L21.1012 19.5408C21.3941 19.8337 21.3941 20.3086 21.1012 20.6015C20.8083 20.8944 20.3334 20.8944 20.0405 20.6015L14.8849 15.4458ZM6.95908 13.884C4.90883 11.8337 4.90883 8.50957 6.95908 6.45932C9.00934 4.40907 12.3334 4.40907 14.3837 6.45932C16.4324 8.50807 16.4339 11.8288 14.3882 13.8795C14.3867 13.881 14.3852 13.8824 14.3836 13.884C14.3821 13.8855 14.3806 13.887 14.3792 13.8885C12.3285 15.9342 9.00783 15.9327 6.95908 13.884Z"
-                            fill="#0E0E2C"
-                          />
-                        </svg>
+                          <svg
+                            width="25"
+                            height="24"
+                            viewBox="0 0 25 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              clipRule="evenodd"
+                              d="M14.8849 15.4458C12.2346 17.5685 8.35521 17.4014 5.89842 14.9446C3.26238 12.3086 3.26238 8.0347 5.89842 5.39866C8.53446 2.76262 12.8083 2.76262 15.4443 5.39866C17.9011 7.85544 18.0682 11.7349 15.9455 14.3852L21.1012 19.5408C21.3941 19.8337 21.3941 20.3086 21.1012 20.6015C20.8083 20.8944 20.3334 20.8944 20.0405 20.6015L14.8849 15.4458ZM6.95908 13.884C4.90883 11.8337 4.90883 8.50957 6.95908 6.45932C9.00934 4.40907 12.3334 4.40907 14.3837 6.45932C16.4324 8.50807 16.4339 11.8288 14.3882 13.8795C14.3867 13.881 14.3852 13.8824 14.3836 13.884C14.3821 13.8855 14.3806 13.887 14.3792 13.8885C12.3285 15.9342 9.00783 15.9327 6.95908 13.884Z"
+                              fill="#0E0E2C"
+                            />
+                          </svg>
+                        </div>
+                        <input
+                          type={"search"}
+                          placeholder={"Search"}
+                          className={"py-[11px] px-[52px] w-full rounded-lg"}
+                        />
                       </div>
-                      <input
-                        type={"search"}
-                        placeholder={"Search"}
-                        className={"py-[11px] px-[52px] w-full rounded-lg"}
-                      />
                     </div>
-                  </div>
+                  )}
+                  {mobile && (
+                    <div className={"grow"} onClick={() => setOpen(true)}>
+                      Open Nav
+                    </div>
+                  )}
                   <div
                     className={
                       "bg-white rounded-full mr-[11px] py-[10px] px-[12px]"

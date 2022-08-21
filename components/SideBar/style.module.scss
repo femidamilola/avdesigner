@@ -4,6 +4,7 @@
   width: 240px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #161616;
   padding: 42px 0;
+  min-height: 100vh;
   height: 100%;
   position: relative;
   hr {
@@ -113,7 +114,6 @@
   }
 
   input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
   }
@@ -126,4 +126,17 @@
   .slider.round:before {
     border-radius: 50%;
   }
+}
+
+@media (max-width: 767px) {
+ .pd_sidebar {
+   position: fixed;
+   width: 100%;
+   z-index: 9999;
+   height: max(100vh, 100%);
+   padding: 10px 0;
+   .nav_list {
+     margin-top: 0;
+   }
+ }
 }

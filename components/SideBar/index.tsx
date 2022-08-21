@@ -10,7 +10,10 @@ import { ContactIcon } from "../icons/ContactIcon";
 import { BookIcon } from "../icons/BookIcon";
 import { PlayIcon } from "../icons/PlayIcon";
 import { SunIcon } from "../icons/SunIcon";
+import useMediaQuery from "../../hooks/useMediaQuery";
 interface propType {
+  open?: boolean;
+  setOpen?: any;
   logout?: () => void;
 }
 
@@ -67,17 +70,23 @@ const links = [
     id: "/contacts",
   },
 ];
-const SideBar = ({}: propType) => {
+const SideBar = ({ open, setOpen }: propType) => {
   const router = useRouter();
   console.log(router.route);
-  return (
+  const mobile = useMediaQuery("(max-width: 767px)");
+  return open || !mobile ? (
     <div className={styles.pd_sidebar + " flex flex-col relative"}>
+      {mobile && (
+        <div className={"px-3 text-white"} onClick={() => setOpen(false)}>
+          Close
+        </div>
+      )}
       <div className={"block text-center text-2xl"}>
         <p className={"text-white"}>
           <span className={"text-[#eb5e00]"}>AV</span> DESIGNER
         </p>
       </div>
-      <div className={styles.cover_all + " pb-[140px]"}>
+      <div className={styles.cover_all + " py-3 md:pt-0 md:pb-[140px]"}>
         <ul className={styles.nav_list}>
           {links.map((link) => (
             <li
@@ -97,9 +106,8 @@ const SideBar = ({}: propType) => {
           ))}
         </ul>
       </div>
-      <div className={"grow"}></div>
       <hr />
-      <div className={"bottom-2 mt-[60px]"}>
+      <div className={"bottom-2 mt-3 md:mt-[60px]"}>
         <ul className={styles.nav_list}>
           {bottom.map((link) => (
             <li
@@ -131,6 +139,8 @@ const SideBar = ({}: propType) => {
         </div>
       </div>
     </div>
+  ) : (
+    <></>
   );
 };
 
