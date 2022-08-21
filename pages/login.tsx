@@ -41,7 +41,7 @@ const Login: NextPage = () => {
               <a href="#">Forgot Password?</a>
             </div>
           </div>
-          <button type="submit" className={styles.loginbtn}>Sign in</button>
+          <button type="submit" className={styles.submitbtn}>Sign in</button>
           <span className={styles.prompt}>New to AV Designer? <Link href="/signup">Sign Up</Link></span>
         </form>
         <span className={styles.divider}></span>
