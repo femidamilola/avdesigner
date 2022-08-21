@@ -44,4 +44,10 @@
     form {
         padding: 0 88px;
     }
+
+    .formRow {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
