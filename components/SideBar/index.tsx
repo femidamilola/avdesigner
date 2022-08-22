@@ -77,8 +77,8 @@ const SideBar = ({ open, setOpen }: propType) => {
   return open || !mobile ? (
     <div className={styles.pd_sidebar + " flex flex-col relative"}>
       {mobile && (
-        <div className={"px-3 text-white"} onClick={() => setOpen(false)}>
-          Close
+        <div className={"ml-4 px-3 text-white"} onClick={() => setOpen(false)}>
+          X
         </div>
       )}
       <div className={"block text-center text-2xl"}>

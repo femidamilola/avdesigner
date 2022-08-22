@@ -1,6 +1,11 @@
 @import './auth.module';
 
 .wrapper {
+    //background-image: url('../public/images/bg.webp');
+    //backdrop-filter: blur(3px);
+    //background-size: contain;
+    //background-repeat: no-repeat;
+    //object-fit: cover;
 
     .half {
         height: 100%;
@@ -9,6 +14,14 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+
+    @media (max-width: 960px) {
+        .half {
+            width: 100%;
+            height: auto;
+            padding-top: 30px
+        }
     }
 
     .prompt {
@@ -20,6 +33,6 @@
     }
 
     form {
-        padding: 0 160px;
+        padding: 0 10rem;
     }
 }

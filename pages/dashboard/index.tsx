@@ -140,13 +140,11 @@ const Home = () => {
           </div>
           <div
             className={
-              "block md:grid grid-cols-2 items-center my-[40px] ml-[51px] gap-[50px] pb-2"
+              "block lg:grid grid-cols-2 items-center my-[40px] ml-[50px] lg:ml-[20px] xl:ml-[51px] gap-[50px] pb-2"
             }
           >
             <div className={styles.svg + " mx-auto"}>
-              <div
-                className={"w-[120px] h-[120px] md:w-[220px] md:h-['220px']"}
-              >
+              <div className={"w-[120px] h-[120px] md:w-[200px] md:h-[200px]"}>
                 <CircularProgressbarWithChildren
                   className={"w-[48px] h-['48px']"}
                   value={80}
@@ -156,9 +154,7 @@ const Home = () => {
                   })}
                 >
                   <div
-                    className={
-                      "w-[120px] h-[120px] md:w-[220px] md:h-['220px']"
-                    }
+                    className={"w-[120px] h-[120px] md:w-[200px] md:h-[200px]"}
                   >
                     <CircularProgressbarWithChildren
                       className={"w-[48px] h-['48px']"}
@@ -170,7 +166,7 @@ const Home = () => {
                     >
                       <div
                         className={
-                          "w-[120px] h-[120px] md:w-[220px] md:h-['220px']"
+                          "w-[120px] h-[120px] md:w-[200px] md:h-[200px]"
                         }
                       >
                         <CircularProgressbarWithChildren
@@ -183,7 +179,7 @@ const Home = () => {
                         >
                           <div
                             className={
-                              "w-[120px] h-[120px] md:w-[220px] md:h-['220px']"
+                              "w-[120px] h-[120px] md:w-[200px] md:h-[200px]"
                             }
                           >
                             <CircularProgressbarWithChildren
