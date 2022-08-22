@@ -11,7 +11,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        order: 1
+        order: 5;
     }
 
     .right {
@@ -22,17 +22,9 @@
         justify-content: center;
     }
 
-    @media (max-width: 960px) {
-        .left, .right {
-            width: 100%;
-            height: auto;
-            padding-top: 30px;
-            text-align: center;
-        }
-    }
-
     .formFooter {
         justify-content: center;
+        display: block;
 
         a {
             color: #114EEC;
@@ -66,5 +58,42 @@
         flex-direction: row;
         justify-content: space-between;
         column-gap: 27px;
+    }
+
+    .divider {
+        order: 4;
+    }
+
+    .right {
+        order: 3;
+    }
+
+    @media (max-width: 960px) {
+        .left, .right {
+            width: 100%;
+            height: auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+
+        .left {
+            order: 3;
+        }
+
+        .right {
+            order: 2
+        }
+
+        .formGroup input:not([type="password"]) {
+            padding-right: 16px;
+        }
+
+        .formGroup input[type="password"] {
+            padding-right: 40px;
+        }
+
+        form {
+            padding: 0 50px;
+        }
     }
 }
