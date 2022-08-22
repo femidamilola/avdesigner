@@ -163,7 +163,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     {nOpen && (
                       <div
                         className={
-                          "absolute top-[100%] bg-white rounded-lg mt-5 py-2 w-[312px] right-[5px] shadow-xl z-50"
+                          "absolute top-[100%] bg-white rounded-lg mt-5 py-2 w-[312px] -right-[75px] shadow-xl z-50"
                         }
                       >
                         <div className={"border-b px-3 py-2"}>Notification</div>
