@@ -10,10 +10,28 @@ import Head from "next/head";
 import { NotificationIcon } from "../components/icons/NotificationIcon";
 import Image from "next/image";
 import useMediaQuery from "../hooks/useMediaQuery";
+import { PeopleIcon } from "../components/icons/PeopleIcon";
+import Link from "next/link";
+import { LogoutIcon } from "../components/icons";
+import { SettingsIcon } from "../components/icons/SettingsIcon";
+import { HelpIcon } from "../components/icons/HelpIcon";
+import { UserIcon } from "../components/icons/UserIcon";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [pOpen, setPOpen] = useState(false);
+  const [nOpen, setNOpen] = useState(false);
+  const links = [
+    { label: "Profile", to: "/dashboard/profile", icon: <UserIcon /> },
+    {
+      label: "Team Management",
+      to: "/",
+      icon: <PeopleIcon iconColor={"black"} />,
+    },
+    { label: "Settings", to: "/", icon: <SettingsIcon /> },
+    { label: "Need help", to: "/", icon: <HelpIcon /> },
+  ];
   // State, used to keep track of authentication
   const [authorized, setAuthorized] = useState(false);
   // State, used to keep track of outline or no outline around buttons, inputs, etc.
@@ -94,7 +112,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               <SideBar open={open} setOpen={setOpen} />
               <div className="main_box px-[25px] py-[16px] grow">
                 <div className={"flex flex-row items-center"}>
-                  {!mobile && (
+                  {!mobile && !router.pathname.includes("profile") && (
                     <div className={"grow mr-[34px]"}>
                       <div className={"relative"}>
                         <div
@@ -130,17 +148,49 @@ function MyApp({ Component, pageProps }: AppProps) {
                       Open Nav
                     </div>
                   )}
+                  {router.pathname.includes("profile") && (
+                    <div className={"grow mr-[34px] text-center"}>
+                      <h2 className={"text-3xl"}>Profile Settings</h2>
+                    </div>
+                  )}
                   <div
                     className={
-                      "bg-white rounded-full mr-[11px] py-[10px] px-[12px]"
+                      "relative bg-white rounded-full mr-[11px] py-[10px] px-[12px] cursor-pointer"
                     }
+                    onClick={() => setNOpen(!nOpen)}
                   >
                     <NotificationIcon iconHeight={"24px"} iconWidth={"24px"} />
+                    {nOpen && (
+                      <div
+                        className={
+                          "absolute top-[100%] bg-white rounded-lg mt-5 py-2 w-[312px] right-[5px] shadow-xl z-50"
+                        }
+                      >
+                        <div className={"border-b px-3 py-2"}>Notification</div>
+                        <div className={"flex flex-col px-3 py-2"}>
+                          <div className={"mr-[8px] border-b pb-1 mb-3"}>
+                            <span>
+                              Dear Chibuzo, you have not verify your Email.
+                              Please click the link on the verification email
+                              sent to you. Click here to resend verification
+                              link.
+                            </span>
+                          </div>
+                          <div className={"mr-[8px] border-b pb-1 mb-3"}>
+                            <span>
+                              New project “GMA project” created. Click here to
+                              edit project details.
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                   <div
                     className={
-                      "flex flex-row items-center bg-white rounded-lg py-[3.5px] px-[8.5px]"
+                      "relative flex flex-row items-center bg-white rounded-lg py-[3.5px] px-[8.5px] cursor-pointer"
                     }
+                    onClick={() => setPOpen(!pOpen)}
                   >
                     <div className={"mr-[11px] h-[36px] w-fit"}>
                       <Image
@@ -164,6 +214,55 @@ function MyApp({ Component, pageProps }: AppProps) {
                         <path d="M7 0.5H0L3.5 4.5L7 0.5Z" fill="#0E0E2C" />
                       </svg>
                     </div>
+                    {pOpen && (
+                      <div
+                        className={
+                          "absolute top-[100%] bg-white rounded-lg mt-5 py-2 w-[312px] right-[5px] shadow-xl z-50"
+                        }
+                      >
+                        <div className={"border-b px-3"}>User Profile</div>
+                        <div className={"flex flex-row px-3 py-2"}>
+                          <div className={"mr-[11px] h-[36px] w-fit"}>
+                            <Image
+                              src={"/images/profile.png"}
+                              alt={"profile"}
+                              width={"36"}
+                              height={"36"}
+                            />
+                          </div>
+                          <div className={"mr-[8px]"}>
+                            <span className={"block"}>Chibuzo Michael</span>
+                            <span className={"text-sm"}>System Designer</span>
+                          </div>
+                        </div>
+                        <div>
+                          <ul>
+                            {links.map((link, index) => (
+                              <li
+                                key={index}
+                                className={
+                                  (index == 0 ? `bg-[#FF660040]` : "") +
+                                  " mx-3 px-1 flex items-center my-2 py-2 rounded cursor-pointer hover:bg-[#FF660040]"
+                                }
+                              >
+                                <span className={"mr-2"}>{link.icon}</span>
+                                <Link href={link.to}>{link.label}</Link>
+                              </li>
+                            ))}
+                          </ul>
+                          <div
+                            className={
+                              "flex flex-row justify-center border-2 border-black mx-3 items-center rounded"
+                            }
+                          >
+                            <span>
+                              <LogoutIcon />
+                            </span>
+                            <Link href={"/"}>Logout</Link>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <Component {...pageProps} />{" "}
